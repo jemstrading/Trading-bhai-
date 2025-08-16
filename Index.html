@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TradingBhai.com - शेयर बाजार की जानकारी</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc; /* हल्के नीले-ग्रे रंग का बैकग्राउंड */
+        }
+        .text-hero {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Navbar -->
+    <header class="bg-indigo-700 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">ट्रेडिंगभाई.कॉम</h1>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-300">होम</a></li>
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-300">मार्केट</a></li>
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-300">ब्लॉग</a></li>
+                    <li><a href="#" class="hover:text-indigo-200 transition duration-300">संपर्क</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-center bg-cover h-[500px] flex items-center justify-center p-4 rounded-b-3xl shadow-xl" style="background-image: url('https://placehold.co/1200x500/1e3a8a/e0e7ff?text=Professional+Trading+Background');">
+        <div class="absolute inset-0 bg-black opacity-50 rounded-b-3xl"></div>
+        <div class="text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-extrabold text-white text-hero mb-4">शेयर बाजार की दुनिया में आपका स्वागत है</h2>
+            <p class="text-lg md:text-xl text-indigo-100 font-medium">सही जानकारी, सही समय पर।</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-4 md:p-8 mt-8">
+        
+        <!-- Live Market Data Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold text-center text-indigo-700 mb-6">लाइव मार्केट डेटा</h3>
+            <div id="market-data-container" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <!-- Nifty Card -->
+                <div id="nifty-card" class="bg-white rounded-xl p-6 shadow-lg flex items-center justify-between transition duration-300 hover:shadow-xl hover:scale-105">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">निफ्टी 50</p>
+                        <p id="nifty-price" class="text-3xl font-bold text-gray-800 animate-pulse">...</p>
+                    </div>
+                    <div>
+                        <span id="nifty-change" class="text-lg font-semibold">...</span>
+                    </div>
+                </div>
+
+                <!-- Bank Nifty Card -->
+                <div id="banknifty-card" class="bg-white rounded-xl p-6 shadow-lg flex items-center justify-between transition duration-300 hover:shadow-xl hover:scale-105">
+                    <div>
+                        <p class="text-sm font-semibold text-gray-500">बैंक निफ्टी</p>
+                        <p id="banknifty-price" class="text-3xl font-bold text-gray-800 animate-pulse">...</p>
+                    </div>
+                    <div>
+                        <span id="banknifty-change" class="text-lg font-semibold">...</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="my-12 border-gray-300">
+
+        <!-- Results News Section -->
+        <section class="mb-12">
+            <h3 class="text-3xl font-bold text-center text-indigo-700 mb-6">कंपनी रिजल्ट की खबरें</h3>
+            <div id="news-container" class="space-y-6">
+                <!-- News articles will be injected here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 p-8 rounded-t-3xl shadow-inner">
+        <div class="container mx-auto text-center">
+            <p>&copy; 2025 TradingBhai.com. सभी अधिकार सुरक्षित।</p>
+            <div class="mt-4 text-sm">
+                <a href="#" class="hover:text-white mx-2">गोपनीयता नीति</a> |
+                <a href="#" class="hover:text-white mx-2">नियम और शर्तें</a> |
+                <a href="#" class="hover:text-white mx-2">संपर्क करें</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Live Market Data Script (काल्पनिक डेटा)
+        const niftyPriceEl = document.getElementById('nifty-price');
+        const niftyChangeEl = document.getElementById('nifty-change');
+        const bankniftyPriceEl = document.getElementById('banknifty-price');
+        const bankniftyChangeEl = document.getElementById('banknifty-change');
+
+        function fetchLiveData() {
+            // यहाँ आप अपने वास्तविक API से डेटा लाएँगे।
+            const mockNiftyPrice = (23000 + Math.random() * 50 - 25).toFixed(2);
+            const mockNiftyChange = (Math.random() * 20 - 10).toFixed(2);
+            const mockBankNiftyPrice = (50000 + Math.random() * 100 - 50).toFixed(2);
+            const mockBankNiftyChange = (Math.random() * 40 - 20).toFixed(2);
+
+            niftyPriceEl.textContent = `₹${mockNiftyPrice}`;
+            niftyChangeEl.textContent = `${mockNiftyChange}%`;
+            updateChangeColor(niftyChangeEl, mockNiftyChange);
+            
+            bankniftyPriceEl.textContent = `₹${mockBankNiftyPrice}`;
+            bankniftyChangeEl.textContent = `${mockBankNiftyChange}%`;
+            updateChangeColor(bankniftyChangeEl, mockBankNiftyChange);
+        }
+
+        function updateChangeColor(element, value) {
+            const val = parseFloat(value);
+            element.classList.remove('text-green-600', 'text-red-600', 'text-gray-500');
+            if (val > 0) {
+                element.classList.add('text-green-600');
+            } else if (val < 0) {
+                element.classList.add('text-red-600');
+            } else {
+                element.classList.add('text-gray-500');
+            }
+        }
+        
+        fetchLiveData();
+        setInterval(fetchLiveData, 5000);
+
+        // Results News Script (काल्पनिक डेटा)
+        const resultsData = [
+            {
+                title: "TCS का Q3 मुनाफा 11,000 करोड़ रुपये को पार कर गया",
+                company: "TCS",
+                summary: "TCS ने उम्मीद से बेहतर प्रदर्शन किया, जिसका शुद्ध लाभ 11,000 करोड़ रुपये से अधिक रहा। कंपनी ने अपने शेयरधारकों के लिए डिविडेंड की भी घोषणा की।",
+                date: "15 अगस्त, 2025"
+            },
+            {
+                title: "Infosys ने वित्तीय वर्ष 2026 के लिए राजस्व अनुमान बढ़ाया",
+                company: "Infosys",
+                summary: "Infosys ने अपने तिमाही नतीजों के बाद पूरे वित्तीय वर्ष के लिए अपने राजस्व वृद्धि अनुमान को संशोधित किया, जो बाजार में निवेशकों के लिए एक सकारात्मक संकेत है।",
+                date: "14 अगस्त, 2025"
+            },
+            {
+                title: "Reliance का Q1 मुनाफा ₹15,000 करोड़, रिटेल और टेलीकॉम का रहा दमदार प्रदर्शन",
+                company: "Reliance",
+                summary: "रिलायंस इंडस्ट्रीज ने अपने तिमाही नतीजों में जबरदस्त मुनाफा दर्ज किया, जिसमें उसके रिटेल और जियो प्लेटफॉर्म्स ने महत्वपूर्ण योगदान दिया।",
+                date: "13 अगस्त, 2025"
+            }
+        ];
+
+        const newsContainer = document.getElementById('news-container');
+
+        function displayNews() {
+            newsContainer.innerHTML = '';
+            resultsData.forEach(newsItem => {
+                const newsCard = document.createElement('div');
+                newsCard.className = 'bg-white rounded-lg p-5 shadow-md transition-all duration-300 transform hover:scale-[1.01] hover:shadow-xl cursor-pointer';
+
+                const titleEl = document.createElement('h2');
+                titleEl.className = 'text-xl font-semibold text-gray-800 mb-1';
+                titleEl.textContent = newsItem.title;
+
+                const companyEl = document.createElement('p');
+                companyEl.className = 'text-sm font-medium text-indigo-600 mb-2';
+                companyEl.textContent = newsItem.company;
+
+                const summaryEl = document.createElement('p');
+                summaryEl.className = 'text-gray-600 text-sm mb-3';
+                summaryEl.textContent = newsItem.summary;
+                
+                const dateEl = document.createElement('p');
+                dateEl.className = 'text-gray-400 text-xs font-light';
+                dateEl.textContent = newsItem.date;
+
+                newsCard.appendChild(titleEl);
+                newsCard.appendChild(companyEl);
+                newsCard.appendChild(summaryEl);
+                newsCard.appendChild(dateEl);
+
+                newsContainer.appendChild(newsCard);
+            });
+        }
+
+        displayNews();
+    </script>
+</body>
+</html>
